@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Photo Header</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-zhaLg9HKxTxDljOPXpWHGn91XMDH+sYAWRSgvzHes290/ISyrNicGrd6BInTnx3L" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="http://localhost:1128/styles.css" />
+  <link type="text/css" rel="stylesheet" href="http://localhost:3001/style.css" />
+  <link type="text/css" rel="stylesheet" href="http://localhost:3003/style.css" />
+  <link type="text/css" rel="stylesheet" href="style.css" />
+</head>
+<body> 
+<div class="header"></div>
+<div id="gallery"></div>
+<div class="wrapper">
+  <div class="row">
+    <div class="leftside">
+        <div id="details"></div>
+        <div id="reviews"></div>
+    </div>
+    <div class="rightside">
+        <div id="booking"></div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="http://localhost:1128/bundle.js"></script>
+<script type="text/javascript" src="http://localhost:3000/bundle.js"></script>
+<script type="text/javascript" src="http://localhost:3001/bundle.js"></script>
+<script type="text/javascript" src="http://localhost:3003/bundle.js"></script>
+<script type="text/javascript" src="https://unpkg.com/react@16.6.1/umd/react.development.js"></script>
+<script type="text/javascript" src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<!-- <script>
+  ReactDOM.render(
+    React.createElement(Gallery), document.getElementById('app'));
+</script> -->
+<script>
+  ReactDOM.render(
+    React.createElement(Gallery),
+    document.getElementById('gallery')
+  );
+  ReactDOM.render(
+    React.createElement(Booking),
+    document.getElementById('booking')
+  );
+  ReactDOM.render(
+    React.createElement(Reviews),
+    document.getElementById('reviews')
+  );
+  ReactDOM.render(
+    React.createElement(Description),
+    document.getElementById('details')
+  );
+
+</script>
+</body>
+</html>
