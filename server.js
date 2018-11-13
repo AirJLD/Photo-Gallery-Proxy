@@ -3,25 +3,27 @@ const morgan = require('morgan');
 const path = require('path');
 const proxy = require('http-proxy-middleware');
 const app = express();
-const port = 1127;
+const port = process.env.PORT || 1127;
 
 app.use(morgan('dev'));
 
 const options = {
-  target: 'http://localhost:1127',
+  target: process.env.HOST || `http://localhost:${port}`,
   changeOrigin: true,
   router: {
-    '/listings': 'http://localhost:1128/',
-    '/rooms': 'http://localhost:3000/',
-    '/api': 'http://localhost:3001/'
-  }
-}
+    '/api': 'http://airjld-reivews.us-east-2.elasticbeanstalk.com',
+    '/rooms': 'http://airjldbooking.us-west-2.elasticbeanstalk.com',
+    '/listings': 'http://airjld2-env.nhf7jyknam.us-east-2.elasticbeanstalk.com',
+    '/description': 'http://jackscrap.us-west-1.elasticbeanstalk.com',
+  },
+};
 
 const apiProxy = proxy(options);
 
 app.use('/listings', apiProxy);
 app.use('/rooms', apiProxy);
 app.use('/api', apiProxy);
+app.use('/description', apiProxy);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(port, () => {
